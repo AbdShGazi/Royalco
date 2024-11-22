@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/category_card.dart';
+import 'package:royalco/pages/product_details_page.dart';
+import 'package:royalco/widgets/search_icon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: const Icon(Icons.search, color: Color(0xFF00B6F1)),
+        leading: const SearchIcon(),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
@@ -144,18 +145,62 @@ class _HomePageState extends State<HomePage> {
                           CategoryCard(
                             title: 'الاثاث المنزلي',
                             icon: Icons.chair_outlined,
+                            products: [
+                              {
+                                'name': 'كرسي مودرن',
+                                'images': [
+                                  'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000',
+                                ],
+                                'price': 299.99
+                              },
+                            ],
                           ),
                           CategoryCard(
                             title: 'الأدوات الصحية',
                             icon: Icons.plumbing_outlined,
+                            products: [
+                              {
+                                'name': 'حنفية حديثة',
+                                'images': [
+                                  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1633505899118-4ca6bd143043?q=80&w=1000',
+                                ],
+                                'price': 149.99
+                              },
+                            ],
                           ),
                           CategoryCard(
                             title: 'الأجهزة الكهربائية',
                             icon: Icons.electrical_services_outlined,
+                            products: [
+                              {
+                                'name': 'مصباح LED',
+                                'images': [
+                                  'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?q=80&w=1000',
+                                ],
+                                'price': 79.99
+                              },
+                            ],
                           ),
                           CategoryCard(
                             title: 'الطاقة الذكية',
                             icon: Icons.bolt_outlined,
+                            products: [
+                              {
+                                'name': 'مفتاح ذكي',
+                                'images': [
+                                  'https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1532010940201-c31e6beacd39?q=80&w=1000',
+                                  'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=1000',
+                                ],
+                                'price': 89.99
+                              },
+                            ],
                           ),
                         ],
                       ),
@@ -172,18 +217,90 @@ class _HomePageState extends State<HomePage> {
                             CategoryCard(
                               title: 'مواد البناء',
                               icon: Icons.architecture_outlined,
+                              products: [
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                              ],
                             ),
                             CategoryCard(
                               title: 'الأدوات المنزلية',
                               icon: Icons.home_repair_service_outlined,
+                              products: [
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                              ],
                             ),
                             CategoryCard(
                               title: 'التكييف والتبريد',
                               icon: Icons.ac_unit_outlined,
+                              products: [
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                              ],
                             ),
                             CategoryCard(
                               title: 'الإضاءة',
                               icon: Icons.light_outlined,
+                              products: [
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                                {
+                                  'name': 'مواد البناء',
+                                  'images': [
+                                    'https://example.com/product1.jpg',
+                                    'https://example.com/product2.jpg',
+                                  ],
+                                  'price': 200.0
+                                },
+                              ],
                             ),
                           ],
                         ),
@@ -287,52 +404,71 @@ class _HomePageState extends State<HomePage> {
 class CategoryCard extends StatelessWidget {
   final String title;
   final IconData icon;
+  final List<Map<String, dynamic>> products;
 
   const CategoryCard({
     super.key,
     required this.title,
     required this.icon,
+    this.products = const [],
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: Colors.black,
-                width: 1,
+    return GestureDetector(
+      onTap: () {
+        if (products.isNotEmpty) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductDetailsPage(
+                title: products[0]['name'] as String,
+                description: 'مجموعة متنوعة من ${title}',
+                images: (products[0]['images'] as List<String>),
+                price: products[0]['price'] as double,
               ),
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
+          );
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: const Offset(0, 2),
             ),
-            textAlign: TextAlign.right,
-          ),
-        ],
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.right,
+            ),
+          ],
+        ),
       ),
     );
   }
