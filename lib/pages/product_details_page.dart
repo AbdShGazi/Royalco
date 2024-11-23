@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:royalco/widgets/custom_app_bar.dart';
 import 'package:royalco/widgets/search_icon.dart';
+import 'package:royalco/pages/orders_page.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final String title;
@@ -119,7 +120,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Text(
-                      'يرجى تحديد الكمية',
+                      'يرجى تحديد الكم��ة',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -294,7 +295,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         icon: Icons.shopping_cart_outlined,
                         badge: '2',
                         onTap: () {
-                          print('Cart clicked');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const OrdersPage()),
+                          );
                         },
                       ),
                       const SizedBox(width: 16),

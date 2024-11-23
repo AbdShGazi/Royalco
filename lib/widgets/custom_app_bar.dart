@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royalco/widgets/search_icon.dart';
+import 'package:royalco/pages/orders_page.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -20,8 +21,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: Icons.shopping_cart_outlined,
             badge: '2',
             onTap: () {
-              print('Cart clicked');
-              // Add navigation logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OrdersPage()),
+              );
             },
           ),
         ),
@@ -30,7 +33,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           badge: '2',
           onTap: () {
             print('Notifications clicked');
-            // Add navigation logic here
           },
         ),
         const SizedBox(width: 16),
