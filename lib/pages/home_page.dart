@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royalco/pages/product_details_page.dart';
-import 'package:royalco/widgets/search_icon.dart';
+import 'package:royalco/widgets/custom_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,31 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: const SearchIcon(),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: AnimatedIconButton(
-              icon: Icons.shopping_cart_outlined,
-              badge: '2',
-              onTap: () {
-                print('Cart clicked');
-              },
-            ),
-          ),
-          AnimatedIconButton(
-            icon: Icons.notifications_outlined,
-            badge: '2',
-            onTap: () {
-              print('Notifications clicked');
-            },
-          ),
-          const SizedBox(width: 16),
-        ],
-      ),
+      appBar: const CustomAppBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -418,98 +394,6 @@ class CategoryCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
               textAlign: TextAlign.right,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class AnimatedIconButton extends StatefulWidget {
-  final IconData icon;
-  final String badge;
-  final VoidCallback onTap;
-
-  const AnimatedIconButton({
-    super.key,
-    required this.icon,
-    required this.badge,
-    required this.onTap,
-  });
-
-  @override
-  State<AnimatedIconButton> createState() => _AnimatedIconButtonState();
-}
-
-class _AnimatedIconButtonState extends State<AnimatedIconButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 150),
-      vsync: this,
-    );
-
-    _scaleAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.8,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Future<void> _handleTap() async {
-    await _controller.forward();
-    await _controller.reverse();
-    widget.onTap();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _handleTap,
-      child: ScaleTransition(
-        scale: _scaleAnimation,
-        child: Stack(
-          children: [
-            Icon(
-              widget.icon,
-              color: const Color(0xFF00B6F1),
-            ),
-            Positioned(
-              right: 0,
-              top: 0,
-              child: Container(
-                padding: const EdgeInsets.all(1),
-                decoration: const BoxDecoration(
-                  color: Colors.red,
-                  shape: BoxShape.circle,
-                ),
-                constraints: const BoxConstraints(
-                  minWidth: 16,
-                  minHeight: 16,
-                ),
-                child: Text(
-                  widget.badge,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
             ),
           ],
         ),

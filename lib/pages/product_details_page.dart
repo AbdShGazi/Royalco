@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:royalco/widgets/custom_app_bar.dart';
+import 'package:royalco/widgets/search_icon.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final String title;
@@ -275,73 +277,33 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       body: SafeArea(
         child: Column(
           children: [
-            // Header
+            // Custom header with back button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      // Or for custom transition:
-                      // Navigator.of(context).pushReplacement(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const HomePage(),
-                      //   ),
-                      // );
-                    },
+                    onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF00B6F1)),
                   ),
-                  const Icon(Icons.search, color: Color(0xFF00B6F1)),
+                  const SearchIcon(),
                   Row(
                     children: [
-                      Stack(
-                        children: [
-                          const Icon(Icons.shopping_cart_outlined, color: Color(0xFF00B6F1)),
-                          Positioned(
-                            right: 0,
-                            top: 0,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                color: Colors.red,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Text(
-                                '2',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 8,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                      AnimatedIconButton(
+                        icon: Icons.shopping_cart_outlined,
+                        badge: '2',
+                        onTap: () {
+                          print('Cart clicked');
+                        },
                       ),
                       const SizedBox(width: 16),
-                      Stack(
-                        children: [
-                          const Icon(Icons.notifications_outlined, color: Color(0xFF00B6F1)),
-                          Positioned(
-                            right: 0,
-                            top: 0,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                color: Colors.red,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Text(
-                                '2',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 8,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                      AnimatedIconButton(
+                        icon: Icons.notifications_outlined,
+                        badge: '2',
+                        onTap: () {
+                          print('Notifications clicked');
+                        },
                       ),
                       const SizedBox(width: 16),
                       const Icon(Icons.menu, color: Color(0xFF00B6F1)),
