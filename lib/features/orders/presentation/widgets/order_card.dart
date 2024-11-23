@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../../../pages/order_details_page.dart' show OrderDetailsPage;
 
 class OrderCard extends StatelessWidget {
   final String orderId;
@@ -49,25 +50,93 @@ class OrderCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Order ID: $orderId',
-                  style: TextStyle(
-                    fontSize: AppSizes.fontSizeM,
-                    fontWeight: FontWeight.bold,
+                  date,
+                  style: const TextStyle(
                     color: Colors.white,
+                    fontSize: 16,
                   ),
                 ),
                 Text(
-                  'Date: $date',
-                  style: TextStyle(
-                    fontSize: AppSizes.fontSizeM,
-                    fontWeight: FontWeight.bold,
+                  '#$orderId',
+                  style: const TextStyle(
                     color: Colors.white,
+                    fontSize: 16,
                   ),
                 ),
               ],
             ),
           ),
-          // Add more widgets as needed
+          Padding(
+            padding: const EdgeInsets.all(AppSizes.paddingM),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: const Color(0xFF00B6F1),
+                      radius: 15,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.edit, size: 15),
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OrderDetailsPage(orderId: orderId),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: AppSizes.paddingS),
+                    CircleAvatar(
+                      backgroundColor: const Color(0xFF00B6F1),
+                      radius: 15,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.delete, size: 15),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      '$itemCount صنف',
+                      style: TextStyle(
+                        fontSize: AppSizes.fontSizeM,
+                        color: Colors.grey[700],
+                      ),
+                      textDirection: TextDirection.rtl,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.check_circle,
+                          color: Colors.green,
+                          size: 20,
+                        ),
+                        SizedBox(width: AppSizes.paddingXS),
+                        Text(
+                          status,
+                          style: TextStyle(
+                            fontSize: AppSizes.fontSizeS,
+                            color: Colors.grey[600],
+                          ),
+                          textDirection: TextDirection.rtl,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

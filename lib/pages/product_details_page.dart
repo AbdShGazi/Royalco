@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:royalco/widgets/custom_app_bar.dart';
-import 'package:royalco/widgets/search_icon.dart';
-import 'package:royalco/pages/orders_page.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final String title;
