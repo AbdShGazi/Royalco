@@ -20,7 +20,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(showBackButton: true),
       body: Column(
         children: [
           const SizedBox(height: 20),

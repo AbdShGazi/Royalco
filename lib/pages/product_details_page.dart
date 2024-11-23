@@ -111,41 +111,37 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           child: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               return Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Text(
-                      'يرجى تحديد الكم��ة',
+                      'يرجى تحيد الكمة',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
                             color: Colors.grey[100],
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Row(
+                          child: const Row(
                             children: [
-                              const Text(
+                              Text(
                                 'PACK',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   color: Colors.black54,
                                 ),
                               ),
-                              const SizedBox(width: 4),
+                              SizedBox(width: 4),
                               Icon(
                                 Icons.arrow_drop_down,
                                 color: Colors.black54,
@@ -216,13 +212,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              padding: const EdgeInsets.symmetric(vertical: 8),
                             ),
                             onPressed: () => Navigator.pop(context),
                             child: const Text(
                               'إلغاء',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -237,7 +233,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              padding: const EdgeInsets.symmetric(vertical: 8),
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -253,7 +249,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             child: const Text(
                               'أضف للسلة',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -275,48 +271,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: const CustomAppBar(showBackButton: true),
       body: SafeArea(
         child: Column(
           children: [
-            // Custom header with back button
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF00B6F1)),
-                  ),
-                  const SearchIcon(),
-                  Row(
-                    children: [
-                      AnimatedIconButton(
-                        icon: Icons.shopping_cart_outlined,
-                        badge: '2',
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const OrdersPage()),
-                          );
-                        },
-                      ),
-                      const SizedBox(width: 16),
-                      AnimatedIconButton(
-                        icon: Icons.notifications_outlined,
-                        badge: '2',
-                        onTap: () {
-                          print('Notifications clicked');
-                        },
-                      ),
-                      const SizedBox(width: 16),
-                      const Icon(Icons.menu, color: Color(0xFF00B6F1)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
             // Content
             Expanded(
               child: SingleChildScrollView(

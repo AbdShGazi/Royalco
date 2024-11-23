@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:royalco/pages/product_details_page.dart';
 import 'package:royalco/widgets/custom_app_bar.dart';
+import 'package:royalco/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -281,6 +282,12 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         _selectedIndex = index;
                       });
+                      if (index == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ProfilePage()),
+                        );
+                      }
                     },
                     currentIndex: _selectedIndex,
                     selectedItemColor: const Color(0xFF00B6F1),

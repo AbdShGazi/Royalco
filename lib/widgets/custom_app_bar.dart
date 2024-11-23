@@ -3,7 +3,12 @@ import 'package:royalco/widgets/search_icon.dart';
 import 'package:royalco/pages/orders_page.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final bool showBackButton;
+  
+  const CustomAppBar({
+    super.key,
+    this.showBackButton = false,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -13,7 +18,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      leading: const SearchIcon(),
+      leading: showBackButton 
+          ? IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF00B6F1),
+              ),
+              onPressed: () => Navigator.pop(context),
+            )
+          : const SearchIcon(),
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
