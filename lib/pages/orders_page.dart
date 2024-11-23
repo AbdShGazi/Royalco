@@ -150,21 +150,22 @@ class _OrdersPageState extends State<OrdersPage> {
                           children: [
                             Row(
                               children: [
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.edit,
-                                    color: Color(0xFF00B6F1),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => OrderDetailsPage(
-                                          orderId: '5022201',
+                                CircleAvatar(
+                                  backgroundColor: const Color(0xFF00B6F1),
+                                  radius: 15,
+                                  child: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    icon: const Icon(Icons.edit, size: 15),
+                                    color: Colors.white,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => OrderDetailsPage(orderId: '5022201'),
                                         ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
                                 IconButton(
                                   icon: const Icon(
